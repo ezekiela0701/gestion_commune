@@ -5,9 +5,10 @@ namespace App\Form;
 use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ModifierUtilisateurType extends AbstractType
 {
@@ -16,15 +17,26 @@ class ModifierUtilisateurType extends AbstractType
         $builder
             ->add('Name')
             ->add('Username')
-            ->add('roles' , EntityType::class , [
-                'class' => Utilisateur::class , 
-                'choice_label' => 'roles',
-                // 'choices' => [
-                //     'ROLE_ADMIN' => 'ROLE_ADMIN' ,
-                //     'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN' , 
-                //     'ROLE_USER' => 'ROLE_USER'
-                // ],
-            ])
+            // ->add('roles' , EntityType::class , [
+            //     'class' => Utilisateur::class , 
+            //     'choice_label' => 'roles',
+            //     // 'choices' => [
+            //     //     'ROLE_ADMIN' => 'ROLE_ADMIN' ,
+            //     //     'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN' , 
+            //     //     'ROLE_USER' => 'ROLE_USER'
+            //     // ],
+            // ])
+            ->add('roles', CollectionType::class, [
+                'entry_type'   => ChoiceType::class,
+                'entry_options'  => [
+                    'label' => false,
+                    'choices' => [
+                                'ROLE_ADMIN' => 'ROLE_ADMIN' ,
+                                'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN' , 
+                                'ROLE_USER' => 'ROLE_USER'
+                            ],
+                ],
+      ])
         ;
     }
 
