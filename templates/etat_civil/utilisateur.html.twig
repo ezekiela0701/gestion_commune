@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+                                    <div class="card-header">
+                                        Liste des utilisateurs
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- <blockquote class="blockquote mb-0"> -->
+                                           <table class="table table-striped table-hover table-bordered bootstrap-datatable datatable responsive">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Nom</th>
+                                                        <th>Nom d'utilisateur</th>
+                                                        <th>roles</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for liste in ListeUtilisateur %}
+                                                        <tr>
+                                                           <td> {{liste.Name}}</td>
+                                                           <td>{{liste.Username}}</td>
+                                                            {% for role in liste.Roles %}
+                                                                <td>{{role }}</td>
+                                                           {% endfor %}
+                                                           <td>
+                                                                <center>
+                                                                    <a href="{{path('modifier_utilisateur' , {'id' : liste.id} )}}" class="btn btn-rounded btn-success fas fa-edit" data-toggle="tooltip" data-placement="top" title="Modifier"></a>
+                                                                    <a href="" class="btn btn-rounded btn-primary fas fa-sync" data-toggle="tooltip" data-placement="top" title="Reinitialisez mot de passe"></a>
+                                                                    <a href="{{path('supprimer_utilisateur' , {'id' : liste.id } )}}" onClick="return confirm('Voulez vous supprimer ce personnel')" class="btn btn-rounded btn-danger fas fa-trash" data-toggle="tooltip" data-placement="top" title="Supprimer"></a>
+                                                                </center>
+                                                           </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                        <!-- </blockquote> -->
+                                    </div>
+                                </div>
+{% endblock %}

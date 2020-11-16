@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EtatCivilController!{% endblock %}
+
+{% block body %}
+    
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <!-- <div class="section-block" id="modal">
+                                        <h3 class="section-title">Modals</h3>
+                                        <p>Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.</p>
+                                    </div> -->
+                                    <div class="card">
+                                        <!-- <h5 class="card-header">Examples</h5> -->
+                                        <div class="card-body">
+                                            <div class="">
+                                                <h4>Live Demo</h4>
+                                                <!-- Button trigger modal -->
+                                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                            Ajouter nouveau utilisateur
+                                                        </a>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Ajouter nouvel utilisateur</h5>
+                                                                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </a>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            {{form_start(IdentiteView)}}
+                                                                <h2 class="card-header drag-handle"> Information utilisateur</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.Nom)}}
+                                                                        {{form_row(IdentiteView.DateNaissance)}}
+                                                                        {{form_row(IdentiteView.Sexe)}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.Prenom)}}
+                                                                        {{form_row(IdentiteView.LieuNaissance)}}
+                                                                    </div>
+                                                                </div><hr>
+
+                                                                <h2 class="card-header drag-handle"> Information Père</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.NomPere , {'label' : 'Nom'} )}}
+                                                                        {{form_row(IdentiteView.DateNaissancePere , {'label' : "Date de naissance"})}}
+                                                                        {{form_row(IdentiteView.ProfessionPere , {'label' : 'Profession'})}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.AdressePere , {'label' : 'Adresse'})}}
+                                                                        {{form_row(IdentiteView.LieuNaissancePere, {'label' : "Lieu de naissance"}) }}
+                                                                    </div>
+                                                                </div><hr>
+
+                                                                <h2 class="card-header drag-handle"> Information Mère</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.NomMere,{'label' : 'Nom'})}}
+                                                                        {{form_row(IdentiteView.DateNaissanceMere , {'label' : "Date de naissance"})}}
+                                                                        {{form_row(IdentiteView.ProfessionMere , {'label' : 'Profession'})}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.AdresseMere , {'label' : 'Adresse'})}}
+                                                                        {{form_row(IdentiteView.LieuNaissanceMere , {'label' : "Lieu de naissance"})}}
+                                                                    </div>
+                                                                </div><hr>
+                                                                
+                                                                <h2 class="card-header drag-handle"> Information Fait par</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.NomFaitPar,{'label' : 'Nom'})}}
+                                                                        {{form_row(IdentiteView.DateNaissanceFaitPar , {'label' : "Date de naissance"})}}
+                                                                        {{form_row(IdentiteView.ProfessionFaitPar , {'label' : 'Profession'})}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(IdentiteView.AdresseFaitPar , {'label' : 'Adresse'})}}
+                                                                        {{form_row(IdentiteView.LieuNaissanceFaitPar , {'label' : "Lieu de naissance"})}}
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <button type="submit" class="btn btn-success btn-block">Ajouter</button>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <button type="reset" class="btn btn-danger btn-block">Annuler</button>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            {{form_end(IdentiteView)}}
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Réduire</a>
+                                                                <!-- <a href="#" class="btn btn-primary">Save changes</a> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <br>
+                                               
+                                                <table class="table table-striped table-hover table-bordered bootstrap-datatable datatable responsive">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Nom</th>
+                                                        <th>Action</th>
+                                                        <th>Prénom</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for liste in ListeIdentite %}
+                                                        <tr>
+                                                           <td> {{liste.Nom}}</td>
+                                                           <td>
+                                                                <center>
+                                                                    <a href="{{path('information_personnel' , {'id' : liste.id} )}}" class="btn btn-rounded btn-brand fas fa-eye" data-toggle="tooltip" data-placement="top" title="Voir information"></a>
+                                                                {% if is_granted('ROLE_ADMIN') %}
+                                                                    <a href="{{path('supprimer_personnel' , {'id' : liste.id} )}}" onClick="return confirm('Voulez vous supprimer ce personnel')" class="btn btn-rounded btn-danger fas fa-trash"></a>
+                                                                {% endif %}
+                                                                </center>
+                                                           </td>
+                                                           <td> {{liste.Prenom}} </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                    </div>
+                                </div>
+{% endblock %}

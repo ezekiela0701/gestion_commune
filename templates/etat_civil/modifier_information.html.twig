@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% form_theme ModificationView 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+                                                            <div class="card-header">
+                                                                <h5 class="card-title" >Modifier information utilisateur</h5>
+                                                            </div>
+                                                            <div class="card-body">
+                                                            {{form_start(ModificationView)}}
+                                                                <h2 class="card-header drag-handle"> Information utilisateur</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.Nom)}}
+                                                                        {{form_row(ModificationView.DateNaissance)}}
+                                                                        {{form_row(ModificationView.Sexe)}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.Prenom)}}
+                                                                        {{form_row(ModificationView.LieuNaissance)}}
+                                                                    </div>
+                                                                </div><hr>
+
+                                                                <h2 class="card-header drag-handle"> Information Père</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.NomPere , {'label' : 'Nom'} )}}
+                                                                        {{form_row(ModificationView.DateNaissancePere , {'label' : "Date de naissance"})}}
+                                                                        {{form_row(ModificationView.ProfessionPere , {'label' : 'Profession'})}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.AdressePere , {'label' : 'Adresse'})}}
+                                                                        {{form_row(ModificationView.LieuNaissancePere, {'label' : "Lieu de naissance"}) }}
+                                                                    </div>
+                                                                </div><hr>
+
+                                                                <h2 class="card-header drag-handle"> Information Mère</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.NomMere,{'label' : 'Nom'})}}
+                                                                        {{form_row(ModificationView.DateNaissanceMere , {'label' : "Date de naissance"})}}
+                                                                        {{form_row(ModificationView.ProfessionMere , {'label' : 'Profession'})}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.AdresseMere , {'label' : 'Adresse'})}}
+                                                                        {{form_row(ModificationView.LieuNaissanceMere , {'label' : "Lieu de naissance"})}}
+                                                                    </div>
+                                                                </div><hr>
+                                                                
+                                                                <h2 class="card-header drag-handle"> Information Fait par</h2><br>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.NomFaitPar,{'label' : 'Nom'})}}
+                                                                        {{form_row(ModificationView.DateNaissanceFaitPar , {'label' : "Date de naissance"})}}
+                                                                        {{form_row(ModificationView.ProfessionFaitPar , {'label' : 'Profession'})}}
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        {{form_row(ModificationView.AdresseFaitPar , {'label' : 'Adresse'})}}
+                                                                        {{form_row(ModificationView.LieuNaissanceFaitPar , {'label' : "Lieu de naissance"})}}
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <button type="submit" class="btn btn-success btn-block">Modifier</button>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <button type="reset" class="btn btn-danger btn-block">Annuler</button>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            {{form_end(ModificationView)}}
+                                                            </div>
+                                                           
+                                                        </div>
+{% endblock %}

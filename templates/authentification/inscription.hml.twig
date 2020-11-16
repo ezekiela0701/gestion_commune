@@ -1,0 +1,33 @@
+{% extends "authentification.html.twig" %}
+
+{% block body %}
+    {{form_start(InscriptionView)}}
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-1">Inscription pour les membres</h3>
+                <p>Entrer votre information</p>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    {{form_row(InscriptionView.Name)}}
+                </div>
+                <div class="form-group">
+                    {{form_row(InscriptionView.Username)}}
+                </div>
+                <div class="form-group">
+                    {{form_row(InscriptionView.password)}}
+                </div>
+                <div class="form-group">
+                    {{form_row(InscriptionView.confirm_password)}}
+                </div>
+                <div class="form-group pt-2">
+                    <button class="btn btn-block btn-primary" type="submit">Insrire</button>
+                </div>
+                
+            </div>
+            <div class="card-footer bg-white">
+                <p>Déjà membre? <a href="{{path('authentification')}}" class="text-secondary">Connecter içi.</a></p>
+            </div>
+        </div>
+    {{form_end(InscriptionView)}}
+{% endblock %}

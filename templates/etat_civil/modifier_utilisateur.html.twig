@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        Modifier Utilisateur
+    </div>
+    <div class="card-body">
+        {{form_start(ModifierView)}} 
+                {{form_row(ModifierView.Name )}}
+                {{form_row(ModifierView.Username )}}
+                {#{form_row(ModifierView.Roles)}#}
+            <div class="row">
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-success btn-block">Modifier</button>
+                </div>
+                <div class="col-lg-6">
+                    <button type="reset" class="btn btn-danger btn-block">Annuler</button>
+                </div>
+            </div>
+        {{form_end(ModifierView)}}
+    </div>
+</div>
+    
+
+{% endblock %}
