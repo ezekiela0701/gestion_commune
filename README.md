@@ -1,9 +1,9 @@
 # gestion_commune
 application gestion commune
 
-1-clonner le projet en faisant git clone https://github.com/ezekiela2303/inventaire.git
+1-clonner le projet en faisant git clone https://github.com/ezekiela2303/gestion_commune.git
 
-2 - cd inventaire
+2 - cd gestion_commune
 
 3- Installer les composer en faisant composer install
 
